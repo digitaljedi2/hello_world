@@ -1,5 +1,5 @@
 FROM centos
-MAINTAINER: jonathan.poole@ncr.com
+MAINTAINER Jonathan Poole <jonathan.poole@ncr.com>
  
 # Update the image with the latest packages (recommended)
 RUN yum update -y; yum clean all
