@@ -14,4 +14,4 @@ COPY website_content /usr/share/nginx/html
 CMD ["nginx", "-g", "daemon off;"]
 
 # Expose the ports for nginx
-EXPOSE 80 443
+EXPOSE 8080
