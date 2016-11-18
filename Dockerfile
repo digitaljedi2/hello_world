@@ -1,20 +1,20 @@
-FROM nginx
+FROM centos
+MAINTAINER: jonathan.poole@ncr.com
+ 
+# Update the image with the latest packages (recommended)
+RUN yum update -y; yum clean all
+ 
+# Install Apache Web Server
+RUN yum install -y httpd; yum clean all
+ 
+# Add the tar file of the web site
+#ADD mysite.tar /tmp/
+ 
+# Docker automatically extracted. So move files to web directory
+COPY website_content /var/www/html
 
-MAINTAINER Jonathan Poole <jpoole@digitaljedi.ca>
-
-# add the files
-RUN apt-get update
-RUN apt-get install -y net-tools
-
-COPY website_content /usr/share/nginx/html
-RUN chmod -R 777 /var/log/nginx /var/cache/nginx/ \
-          && chmod 644 /etc/nginx/*
-RUN chown -R nginx:nginx /var/cache/ /etc/nginx/
-RUN chmod -R 0777 /var/cache/
-
-USER nginx
-
-CMD ["nginx", "-g", "daemon off;"]
-
-# Expose the ports for nginx
-EXPOSE 8080
+ 
+EXPOSE 80
+ 
+ENTRYPOINT [ "/usr/sbin/httpd" ]
+CMD [ "-D", "FOREGROUND" ]
