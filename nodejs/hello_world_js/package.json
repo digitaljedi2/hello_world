@@ -1,0 +1,13 @@
+{
+  "name": "hello_world",
+  "version": "1.0.0",
+  "description": "Hello World NodeJS Docker",
+  "author": "Jonathan Poole <jonathan.poole@ncr.com>",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.13.3"
+  }
+}
