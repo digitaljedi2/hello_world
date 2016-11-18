@@ -1,10 +1,6 @@
 FROM nginx
 
-MAINTAINER Jonathan Poole <jonathan.poole@ncr.com>
-
-#RUN apk update && \
-#    apk upgrade && \
-#    apk add --update nginx && rm -rf /var/cache/apk/*
+MAINTAINER Jonathan Poole <jpoole@digitaljedi.ca>
 
 # add the files
 COPY nginx/nginx.conf /etc/nginx/nginx.conf
